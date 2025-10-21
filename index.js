@@ -29,9 +29,10 @@ client.on('messageCreate', message => {
     const greetings = ['cześć', 'czesc', 'hej', 'siema', 'elo', 'yo', 'witam', 'hello', 'hi'];
     const bestMatch = stringSimilarity.findBestMatch(text, greetings);
 
-    if (bestMatch.bestMatch.rating > 0.5 && (text.includes('bot') || text.includes('bocik') || text.includes('bocie'))) {
-        message.reply('No siema! 😎');
-    }
+    if (bestMatch.bestMatch.rating > 0.5 && /(bot|bocik|bocie)/i.test(text)) {
+    message.reply('Hejka <3');
+}
+
 });
 
 client.login(process.env.TOKEN);
